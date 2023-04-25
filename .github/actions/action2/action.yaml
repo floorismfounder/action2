@@ -1,0 +1,11 @@
+name: Action2
+description: 'A simple example GitHub Action'
+inputs:
+  message:
+    description: 'The message to display'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Show Message
+      run: echo ${{ inputs.message }}
