@@ -1,18 +1,13 @@
-name: Hello world
-description: Greet someone
+name: 'Hello World'
+description: 'Says hello to the world'
+
 inputs:
-  name:
+  who-to-greet: 
     description: 'Who to greet'
     required: true
     default: 'World'
-outputs:
-  greeting:
-    description: 'The greeting'
+
 runs:
-  using: 'bash'
-  shell: 'bash'
+  using: 'shell'
   steps:
-    - name: Greeting
-      id: greeting
-      run: echo "Hello ${{ inputs.name }}!"
-      shell: 'bash'
+  - run: echo Hello ${{ inputs.who-to-greet }}!
