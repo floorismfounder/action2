@@ -1,0 +1,19 @@
+name: Hello World
+description: Greet someone with a friendly message
+inputs:
+  who-to-greet:
+    description: 'Who to greet'
+    required: true
+    default: 'World'
+outputs:
+  time: ${{ steps.time.outputs.time }}
+  message: ${{ steps.hello.outputs.message }}
+runs:
+  using: "composite"
+  steps:
+    - id: time
+      run: echo "::set-output name=time::$(date)"
+    - id: hello
+      uses: actions/hello-world-javascript-action@v1
+      with:
+        who-to-greet: ${{ inputs.who-to-greet }}
